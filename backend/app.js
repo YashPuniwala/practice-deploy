@@ -83,8 +83,8 @@ app.post("/api/login", async (req, res) => {
     // Send token in cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: true, // Required for HTTPS
-      sameSite: "None", // Required for cross-origin requests
+      secure: process.env.NODE_ENV === "production", // Only secure in production
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     });
 

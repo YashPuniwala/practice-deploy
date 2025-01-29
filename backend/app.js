@@ -15,6 +15,8 @@ app.use(
   cors({
     origin: "https://practice-deploy-1234.netlify.app", // Adjust this to match your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
 
@@ -83,9 +85,12 @@ app.post("/api/login", async (req, res) => {
     // Send token in cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", // Only secure in production
-      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-      maxAge: 24 * 60 * 60 * 1000, // 1 day
+      // secure: isProduction,
+      secure: true,
+      // sameSite: isProduction ? 'none' : 'lax',
+      sameSite: "none",
+      maxAge: 15 * 60 * 1000,
+      path: '/',
     });
 
     res.json({ message: "Logged in successfully" });

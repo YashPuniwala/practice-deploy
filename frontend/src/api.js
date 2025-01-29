@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Set base URL (update this if needed)
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Change this if backend runs elsewhere
+  baseURL: "https://practice-deploy-zw8x.onrender.com/api", // Change this if backend runs elsewhere
   withCredentials: true, // Allows sending cookies
 });
 

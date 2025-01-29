@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Adjust this to match your frontend URL
+    origin: "https://practice-deploy-1234.netlify.app", // Adjust this to match your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers)
   })
 );

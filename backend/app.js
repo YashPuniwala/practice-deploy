@@ -87,7 +87,7 @@ app.post("/api/login", async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       // secure: isProduction,
-      secure: process.env.NODE_ENV === "production", // Only use secure in production
+      secure: true, // Only use secure in production
       // sameSite: isProduction ? 'none' : 'lax',
       sameSite: "none",
       maxAge: 15 * 60 * 1000,

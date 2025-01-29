@@ -89,9 +89,10 @@ app.post("/api/login", async (req, res) => {
       // secure: isProduction,
       secure: true, // Only use secure in production
       // sameSite: isProduction ? 'none' : 'lax',
-      sameSite: "none",
+      sameSite: "None",
       maxAge: 15 * 60 * 1000,
       path: '/',
+      domain: "https://practice-deploy-zw8x.onrender.com"
     });
 
     res.json({ message: "Logged in successfully", token }); // Send token for debugging

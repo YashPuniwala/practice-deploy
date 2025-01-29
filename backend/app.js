@@ -107,12 +107,12 @@ app.get("/api/profile", authenticateToken, async (req, res) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "frontend/build")));
+// app.use(express.static(path.join(__dirname, "frontend/build")));
 
-// If no API route is matched, serve the React app
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-});
+// // If no API route is matched, serve the React app
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+// });
 
 // Start the server
 const PORT = process.env.PORT || 5000;

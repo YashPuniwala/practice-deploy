@@ -81,19 +81,20 @@ app.post("/api/login", async (req, res) => {
 
     // Generate JWT
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+    console.log("Generated Token:", token); // Debugging
 
     // Send token in cookie
     res.cookie("token", token, {
       httpOnly: true,
       // secure: isProduction,
-      secure: true,
+      secure: process.env.NODE_ENV === "production", // Only use secure in production
       // sameSite: isProduction ? 'none' : 'lax',
       sameSite: "none",
       maxAge: 15 * 60 * 1000,
       path: '/',
     });
 
-    res.json({ message: "Logged in successfully" });
+    res.json({ message: "Logged in successfully", token }); // Send token for debugging
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }

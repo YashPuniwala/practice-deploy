@@ -91,8 +91,7 @@ app.post("/api/login", async (req, res) => {
       // sameSite: isProduction ? 'none' : 'lax',
       sameSite: "None",
       maxAge: 15 * 60 * 1000,
-      path: '/',
-      domain: "https://practice-deploy-zw8x.onrender.com"
+      path: '/'
     });
 
     res.json({ message: "Logged in successfully", token }); // Send token for debugging

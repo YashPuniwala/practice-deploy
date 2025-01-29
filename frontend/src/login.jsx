@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     const response = await loginUser(formData);
     setMessage(response.message);
-    navigate("/proflile");
+    navigate("/profile");
   };
 
   return (
